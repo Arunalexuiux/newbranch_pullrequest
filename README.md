@@ -1,72 +1,122 @@
+# real-estate-management
 
-[![Linkedin Badge](https://img.shields.io/badge/Sametkaya-follow%20on%20linkedin-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/samet-kaya-736604170/)
-![Instagram Badge](https://img.shields.io/badge/kaya67380@gmail.com-follow%20on%20Gmail-blue?style=for-the-badge&logo=gmail)
+A online property management solution for real estate and
+physical property management. This can include residential,
+commercial, and land real estate. a software developed to
+connect property managers and potential buyers.
+
+🚧 **frontend/** work in progress 🚧.
+
+🚧 **backend-fastify/** work in progress 🚧.
+
+**[LIVE DEMO](https://real-estate-management.netlify.app/)**
+
+![Screenshot](https://ik.imagekit.io/wr5lnrww0q8/REM_Folder/social_GKmc-8vHw.jpg?updatedAt=1631134174081)
 
 
-![HomePage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/HomePage.PNG)
-<br> 
+## **Dependencies**
 
+### **Frontend**
+- [Ionic 6+](https://ionicframework.com/)
+- [Angular 14+](https://angular.io/)
+- [leaflet 1.7+](https://leafletjs.com/)
+- [chartjs 3.5+](https://www.chartjs.org/)
 
-![HomePage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/HomePage2.PNG)
-<br> 
+### **Backend**
+- [Node](https://nodejs.org/en/)
+- [fastify 4+](https://www.fastify.io/)
+- [mongoDB](https://www.mongodb.com/)
 
-![HomePage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/HomePage3.PNG)
-<br> 
+# **SETUP**
 
-![HomePage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/HomePage4.PNG)
-<br> 
+## **Frontend (Part)**
 
-![HomePage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/HomePage5.PNG)
-<br> 
+### **1.1 navigate to `frontend/` directory.**
 
-![HomePage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/HomePage6.PNG)
-<br> 
+```
+#  navigate to frontend 
+$ cd frontend
+```
 
-![LoginPage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/LoginPage.PNG)
-<br> 
+### **1.2 Fill the desired environment variables:**  
+- navigate to `frontend/src/environments`
+- set values to variables (ex. api.url) 
+```
+  api: {
+    url: 'http://localhost:8000/', <-- server URL
+    mapKey: '', <-- Leaflet map key,
+    googleAuthClientId: '', <-- google Auth CLient ID for Social signin
+    webSocketUrl: 'ws://localhost:8000/websocket' <-- websocket URL
+  }
+```
 
-![Register Page](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/RegisterPage.PNG)
-<br> 
+### **2. then install dependencies & run ionic serve**
 
-![UserProfile](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/UserProfile.PNG)
-<br> 
+In terminal - command
+```
+# install dependencies
+$ npm install
 
-![AdminPage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/AdminPage.PNG)
-<br> 
+# serve frontend
+$ ionic serve
+```
 
-![CarsPage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/CarsPage.PNG)
-<br> 
+<br>
 
-![CarUpdate](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/CarUpdate.PNG)
-<br> 
+## **Backend-Fastify (Part)**
+### **1.1 navigate to `backend-fastify/` directory.**
+```
+cd backend-fastify/
+```
+### **1.2 create `.env` file & add variables:**
+- copy `.env.example` & re-name it to `.env`
+- set your desired variable value
+```
+PORT=8000
+LOGGER=true
+SALT=12
+SECRET_KEY='secret'
+DB_CONNECT=mongodb://localhost:27017/rem-db
+```
+### **2. then install dependencies & run dev**
 
-![ColorPage](https://github.com/Samettkaya/RentA-Car-FrontEnd-Angular/blob/master/Readme-Images/ColorPage.PNG)
-<br> 
+In terminal - command
+```
+#  navigate to backend-fastify 
+$ cd backend-fastify
 
-# RentACarFrontEnd
+# install dependencies
+$ npm install
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+# start server
+$ npm start `or` $ npm run dev
 
-## Development server
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### **2.1 Database seeder(optional)**
+- Make sure `.env` is configured & dependencies are installed
+- Will populate database with dummy data.
 
-## Code scaffolding
+⚠️ This will delete existing records in the database document. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+⚠️ Make a backup if needed
+```
+$ npm run db:seeder
+```
 
-## Build
+dummy user:
+```
+  fullName: "test tester",
+  email: "test@email.com",
+  password: "password"
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  You can use this to signin.
+```
+## Routes
+```
+/docs/
+/users/
+/auth/
+/properties/
+/enquiries/
+```
